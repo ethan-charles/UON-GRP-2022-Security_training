@@ -1,0 +1,34 @@
+{
+    "email": [
+        {
+            "id": 0,
+            "title": "this is the email title",
+            "sender" : {
+                "picture" : "websiteAssets/anonymous.png",
+                "name" : "John Smith",
+                "email" : "Example@gmail.com"
+            },
+            "body": "fake text for demo fake text for demo fake text for demo fake text for demo <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for </p> <p>fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo \nclick this link: <a href='url'>NOT A SCAM</a>"
+        },
+        {
+            "id": 1,
+            "title": "test email from 1",
+            "sender" : {
+                "picture" : "websiteAssets/anonymous.png",
+                "name" : "Jane Doe",
+                "email" : "Example@gmail.com"
+            },
+            "body": "fake text for demo fake text for demo fake text for demo fake text for demo \nfake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for \nfake text for demo fake text for demo fake text for demo fake text for demo fake text for demo <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo \nclick this link: <a href='url'>NOT A SCAM</a>"
+        },
+        {
+            "id": 2,
+            "title": "test email from 2",
+            "sender" : {
+                "picture" : "websiteAssets/anonymous.png",
+                "name" : "Unkown User",
+                "email" : "Example@gmail.com"
+            },
+            "body": "example two text example two text example two text example two text \nexample two text example two text example two text example two text example two text example two text example two text example two text example two text \nexample two text example two text example two text example two text example two text example two text <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo \nclick this link: <a href='url'>NOT A SCAM</a>"
+        }
+    ]
+}
