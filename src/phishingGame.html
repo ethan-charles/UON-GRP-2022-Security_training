@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title> Phishing Game </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <LINK REL='stylesheet' TYPE='text/css' HREF='phishingGame.css' />
+
+</head>
+
+<body>
+  <div class="header">
+    <div class="wrap">
+      <div class="logo">
+        <a href="index.html"><img src="images/cslogo.png" alt="" /></a>
+      </div>
+      <div class="header-right">
+        <div id='cssmenu'>
+          <ul>
+            <li><a href='index.html'><span>Home</span></a></li>
+            |
+            <li href=''><a><span>Topics</span></a>
+              <ul>
+                <li class='has-sub'><a href='phishing.html'><span>Phishing</span></a></li>
+                <li class='has-sub'><a href='passwords.html'><span>Passwords and Authentication</span></a></li>
+                <li class='has-sub'><a href='RemovableM.html'><span>Removable Media</span></a></li>
+                <li class='has-sub'><a href='SocialM.html'><span>Social Media</span></a></li>
+              </ul>
+              |
+            <li><a href='phishingGame.html'><span>Game</span></a></li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  </div>
+  <div id="main" class="main">
+
+    <!--implements the left side bar which holds the profile pic 
+        and would allow links to other inboxes-->
+    <div class="sidenav">
+      <img src="websiteAssets/anonymous.png" alt="profile picture">
+      <a>inbox</a>
+      <button id="sn-1" class="side-button" onclick="location.reload()">tutorial</button>
+      <a id="sn-score">score: 0</a>
+      <button class="side-button" onclick="endGame('You ended the game')">End Game</button>
+    </div>
+
+    <!--implements the the list which shows email thumbnails-->
+    <div class="inbox">
+      <a id="inboxText">Inbox </a>
+      <!--creates a grid and adds items to it, each item contains a button
+            on button click display email is called passing eID(email ID),
+            the eID is set in js when emails are first assigned to position in list-->
+      <div class="grid-list" id="emailList">
+
+      </div>
+
+    </div>
+
+    <!--implements the email view where the main body of the email would be shown-->
+    <div id=emailView class="emailViewB">
+      <div id="HeaderBox" class="emailHeader">
+        <h2 id="emailTitle"></h2>
+        <div id="emailSender" class="emailSender">
+          <img id="senderpfp" class="avatar" src="" alt="Profile Picture"></img>
+          <h3 id="senderName" class="senderName"></h3>
+          <h4 id="senderEmail" class="senderEmail"></h4>
+          <button id="emailAttachment" class="attachmentDiv">
+            <img id="emailAttachmentID" class="attachmentImg" src=""></img>
+            <p id="attachmentName" class=attachmentName></p>
+          </button>
+
+
+        </div>
+      </div>
+      <p id="emailBody"></p>
+    </div>
+
+    <div id = "popup-background" class = "popup-background">
+      <div id="popup" class = "popup">
+        
+        <div class="slideshow-container">
+
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 5</div>
+            <img src="websiteAssets/click.png" style="width:100%">
+            <div class="text">Click on emails to make them fullscreen</div>
+          </div>
+          
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 5</div>
+            <img src="websiteAssets/read.png" style="width:100%">
+            <div class="text">Read their contents carefully</div>
+          </div>
+          
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="websiteAssets/delete.png" style="width:100%">
+            <div class="text">If you think its a scam mark it as a phish, otherwise mark as read</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="websiteAssets/bonus.png" style="width:100%">
+            <div class="text">Some emails have links and attachments. If you think they're safe, click on them for bonus points! But the game will end if you're wrong</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="websiteAssets/gameover.png" style="width:100%">
+            <div class="text">The game will end when the timer runs out or your inbox is full. Try and get as many points before then</div>
+          </div>
+          
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+          
+          </div>
+          <br>
+          
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+          </div>
+        <button id = "popup-button" class = "popup-button">begin</button>
+      </div>
+    </div>
+
+    <div id = "feedback" class = "feedback">
+      <a id="feedback-text"></a>
+    </div>
+    
+    <div id="timer-box" class="timer-box">
+      <a id = timer>0:00</a>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+  <script async type="text/javascript" src="eGameJS.js"></script>
+</body>
+
+</html>

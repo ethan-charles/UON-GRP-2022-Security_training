@@ -1,34 +1,188 @@
 {
-    "email": [
-        {
-            "id": 0,
-            "title": "this is the email title",
-            "sender" : {
-                "picture" : "websiteAssets/anonymous.png",
-                "name" : "John Smith",
-                "email" : "Example@gmail.com"
-            },
-            "body": "fake text for demo fake text for demo fake text for demo fake text for demo <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for </p> <p>fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo \nclick this link: <a href='url'>NOT A SCAM</a>"
-        },
-        {
-            "id": 1,
-            "title": "test email from 1",
-            "sender" : {
-                "picture" : "websiteAssets/anonymous.png",
-                "name" : "Jane Doe",
-                "email" : "Example@gmail.com"
-            },
-            "body": "fake text for demo fake text for demo fake text for demo fake text for demo \nfake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo fake text for \nfake text for demo fake text for demo fake text for demo fake text for demo fake text for demo <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo \nclick this link: <a href='url'>NOT A SCAM</a>"
-        },
-        {
-            "id": 2,
-            "title": "test email from 2",
-            "sender" : {
-                "picture" : "websiteAssets/anonymous.png",
-                "name" : "Unkown User",
-                "email" : "Example@gmail.com"
-            },
-            "body": "example two text example two text example two text example two text \nexample two text example two text example two text example two text example two text example two text example two text example two text example two text \nexample two text example two text example two text example two text example two text example two text <br> fake text for demo fake text for demo fake text for demo fake text for demo fake text for demo \nclick this link: <a href='url'>NOT A SCAM</a>"
-        }
-    ]
+  "safe": [
+    {
+      "id": 0,
+      "title": "Deadline due",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Steven Bageley",
+        "email": "pszsrb@nottingham.ac.uk"
+      },
+      "body": "Dear Students, <br><br>Just wanted to remind you all that the deadline for your coursework is on Friday. If you need any advice just send me an email<br><br>Many Thanks, <br><br> Steven ",
+      "attachment": ""
+    },
+    {
+      "id": 1,
+      "title": "Plant Location and Design",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Vahid Akbarighadikolaei",
+        "email": "lizva@nottingham.ac.uk"
+      },
+      "body": "Dear Students, <br><br>We will have our 7th session on (Factory Dynamics) next Monday.<br><br>I have uploaded all slides and lectures which you can access on the \n\n<a href='https://moodle.nottingham.ac.uk/login/index.php'>moodle</a>\n\n<br><br>Many Thanks, see you in class. <br><br> Vahid ",
+      "attachment": ""
+    },
+    {
+      "id": 2,
+      "title": "Hazardous Flooring in Computer Science Building",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "PS-CS ",
+        "email": "PS_CS@nottingham.ac.uk"
+      },
+      "body": "Dear Students, <br><br>Please do not use the door on the right-hand side of the computer science building.<br><br> There is hazardous flooring in the yellow highlighted area, and due to this we need to block off this section.<br><br>To enter and exit the building, please use either the doors on the left-hand side near our other stairwell<br><br>Many Thanks, Stay safe. <br><br> susan",
+      "attachment": ""
+    },
+    {
+      "id": 3,
+      "title": "Share more, feel good",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "TripAdvisor",
+        "email": "dont-reply@tripadvisor.com"
+      },
+      "body": "What makes a great review? <br><br>The best reviews are the ones that keep it real. Start with your honest opinion, sprinkle in a tip or two, and be as specific as possible. It’s that easy.<br><br>Thanks, your TripAdvisor team",
+      "attachment": ""
+    },
+    {
+      "id": 4,
+      "title": "Apartment Available",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "David Thomas",
+        "email": "Davidthomas@nottsagency.com"
+      },
+      "body": "Dear Sir, <br><br>Please be aware that this property is available for occupation from the 25th May and that the second bedroom is only a single sized spare room. <br><br>I will be at the property tomorrow (Friday) between 11:30-12:30 so if you would like to view during these times please just reply to this email, <br><br> Regards, <br><br>David Thomas (Director)"
+    },
+    {
+      "id": 5,
+      "title": "Your network Highlights",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "LinkedIn",
+        "email": "notifications@Linkedin-UK.com"
+      },
+      "body": "Your friend recently joined <br><br>Click on the \n\n<a href='https://www.linkedin.com/'>button</a>\n\n to view check his profile to view his latest activities!",
+      "attachment": ""
+    },
+    {
+      "id": 6,
+      "title": "Please be cautious",
+      "body": "Hello students,\n\n<br><br>\n\nWe have had reports from other students of malicious emails being sent to students. If you receive an email asking you to reset your university password which you are not expecting please ignore it. \n\n<br><br>\n\nIf you are unsure of what to do when you receive this email check the sender email address at the top of the email to make sure it is the official Nottingham address, or you can get in contact with us.\n\n<br><br>\n\nThank you for your vigilance, Paul Smith (head of IT security)",
+      "attachment": "",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "IT Department",
+        "email": "IT-security@nottingham.ac.uk"
+      }
+    },
+    {
+      "id": 7,
+      "title": "check out this video",
+      "body": "hey man,\n\nhows it going, i broke my phone so im gonna have to use my laptop for a while. Anyway, i saw this funny video you'd like, \n\n<a href='https://www.youtube.com/'>https://www.youtube.com/</a>",
+      "attachment": "",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Adam Ranger",
+        "email": "adds.ranger@gmail.com"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Bank Statement",
+      "body": "Hello, <br><br> We have switched to paperless banking. You can view your bank statement by clicking the attached pdf. <br><br> If you would like to switch back to regular bank statements you can get in touch with customer support on our website. <br><br> Many thanks, your Lloyds team.",
+      "attachment": "statement.pdf",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Lloyds",
+        "email": "no-reply@lloyds-banking.uk"
+      }
+    }
+  ],
+  "scam": [
+    {
+      "id": 9,
+      "title": "New Student Deals",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "TOTUM",
+        "email": "no-reply@ec.ttotum.com"
+      },
+      "body": "Hey Students! <br><br>A hot new deal has just dropped, just for you. <br><br>You can now get 2 for 1 sausage rolls at greggs <br><br>Click the link to claim: <a href='www.scamYou.com'>here</a>",
+      "attachment": "",
+      "feedback": "the email address was incorrectly spelled and when you hover over the link you can see it takes you to a different website then it says it will"
+    },
+    {
+      "id": 10,
+      "title": "Please verify your email address",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Github",
+        "email": "steve.github@domain.com"
+      },
+      "body": "Almost Done! <br><br>To complete your gitthub account signup, we just need to verify your email address <a href='www.phishing-site.com'>click here</a>",
+      "attachment": "",
+      "feedback": "the email address was incorrectly spelled and when you hover over the link you can see it takes you to a different website then it says it will"
+    },
+    {
+      "id": 11,
+      "title": "A high-severity alert has been triggered!",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Microsoft",
+        "email": "Micrsoft@emailrecords.com"
+      },
+      "body": "helo customer, <br><br> we've detected some strange activity on you're account. please reply to this email urguntly and we will continue to help you to resolve this situation. <br><br> if you fail to reply we will suspend all your microsoft services.",
+      "attachment": "",
+      "feedback": "watch for poor spelling in emails and make sure the address the email was sent from is the official one. emails that threaten immediate action are likely to be scam attempts."
+    },
+    {
+      "id": 12,
+      "title": "please reset your password",
+      "body": "hello student, <br><br> it is time for you to reset your password for your university account. you can do this <a href='www.phishing-site.com'>here</a>. If you have any trouble don't hesitate to email me at <a disabled href='#'>jamie-IT@nottingham.ac.uk</a>. <br><br> many thanks, Jamie.",
+      "attachment": "",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Jamie (IT-support)",
+        "email": "IT-support@blackwood.uni.uk"
+      },
+      "feedback": "when you hover over the link you can see it takes you to a different website then it says it will, the email address the email is sent from is not an official address and is different to the one he tells you to reply to."
+    },
+    {
+      "id": 13,
+      "title": "try our new software",
+      "body": "Hello! <br><br> we've selected you for a free trial of our new pdf viewer program. its lightweight and feature packed; we are sure you are going to love it. <br><br> just install the software from the attachment and use this activation key when promted: Xdsy6T87 <br><br> from the adobe team.",
+      "attachment": "pdf-viewer.exe",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "Adobe free trial",
+        "email": "adobe-support@freetrial.edu.ca"
+      },
+      "feedback": "the email address is from an unrecognised URL. No software publisher would send the program within an email."
+    },
+    {
+      "id": 14,
+      "title": "unpaid wifi bill",
+      "body": "you have not paid the council wifi tax. if you fail to do so within free working days we will suspend your service. please pay the fine to the paypal account registered with this email address. <br><br> please do this with haste.",
+      "attachment": "",
+      "sender": {
+        "picture": "websiteAssets/anonymous.png",
+        "name": "mark",
+        "email": "mark-hitchings@gmail.com"
+      },
+      "feedback": "the email is phrased as being from the council but it is from a personal email address. no official business will require you directly transferring money to a personal paypal account."
+    },
+    {
+      "id": 15,
+      "title": "Cyber Security Training overdue",
+      "body": "Your mandatory cybersecurity training is overdue. Please click this <a href='www.safetraining.de/ersatz/train.html'>link</a> and complete the training within 7 days.\n<br>\nMichael",
+      "attachment": "",
+      "sender": {
+		"picture" : "websiteAssets/anonymous.png",
+        "name": "Michael Skinner",
+        "email": "Michael.Skinner@nottingham.ac.uk"
+      },
+      "feedback": "oh dear... glug glug glug"
+    }
+  ]
 }

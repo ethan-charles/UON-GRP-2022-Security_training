@@ -1,0 +1,36 @@
+textarea {
+	resize: none;
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100%;
+}
+.bodyText {
+	aspect-ratio: 2;
+}
+
+.safeScam {
+	width: 10%;
+	aspect-ratio: 3;
+}
+
+.emailList {
+	width: 40%;
+}
+
+.oddEmail { 
+	/* background-color: lightblue; */
+	border-style: solid;
+	border: 1;
+	margin: 2%;
+	padding: 5%;
+	padding-top: 2%;
+}
+
+.evenEmail {
+  	/* background-color: rgb(90, 159, 194); */
+	  border-style: solid;
+	  border: 1;
+	  margin: 2%;
+	  padding: 5%;
+	  padding-top: 2%;
+	}

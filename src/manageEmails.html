@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<LINK REL='stylesheet' TYPE='text/css' HREF='manageEmails.css'>
+	<title>Manage Emails</title>
+</head>
+
+<body>
+	<input type="file" id="fileInput" onchange="loadEmails()">
+	<button id="safeBtn" class="safeScam" onclick="showSafe()" disabled>Safe</button>
+	<button id="scamBtn" class="safeScam" onclick="showScam()" disabled>Scam</button>
+	<button id="saveBtn" class="safeScam" onclick="saveEmails()" disabled>Save Emails</button>
+	<div>
+
+		<div id="email-list" class="emailList">
+
+		</div>
+	</div>
+	<script>
+		var emails;
+		function loadEmails() {
+
+			// allows upload for a json file containing the emails to be edited 
+			const file = document.getElementById("fileInput").files[0];
+
+			if (file == null) {
+				return;
+			}
+
+			// reads the emails into the json object
+			var reader = new FileReader();
+			reader.onload = function (event) {
+				emails = JSON.parse(event.target.result);
+			}
+			reader.readAsText(file);
+			console.log(emails);
+
+			// enables the email view buttons
+			document.getElementById("saveBtn").disabled = false;
+			document.getElementById("safeBtn").disabled = false;
+			document.getElementById("scamBtn").disabled = false;
+			clear();
+		}
+
+		// shows all scam emails
+		function showScam() {
+			clear()
+			var scam = emails.scam;
+			var i = 0;
+			scam.forEach(element => {
+				addEmail(element, "scam", i);
+				i++;
+			});
+
+			newEmailBtn("scam", i);
+		}
+
+		// shows all safe emails
+		function showSafe() {
+			clear();
+			var safe = emails.safe;
+			var i = 0;
+			safe.forEach(element => {
+				addEmail(element, "safe", i);
+				i++;
+			});
+
+			newEmailBtn("safe", i);
+		}
+
+		// adds a new email button to the bottom of the email list
+		function newEmailBtn(safeOrScam, id) {
+			var newEmail = document.createElement("button");
+			newEmail.innerText = "New Email";
+			newEmail.id = "new-email-btn";
+			// creates either a new scam or safe email object at the bottom of the emails arrays
+			if (safeOrScam == "safe") {
+				newEmail.addEventListener('click', function () {
+					emails.safe[id] = new Object;
+					emails.safe[id].id = id;
+					emails.safe[id].title = "";
+					emails.safe[id].body = "";
+					emails.safe[id].attachment = "";
+
+					emails.safe[id].sender = new Object;
+					emails.safe[id].sender.name = "";
+					emails.safe[id].sender.email = "";
+					emails.safe[id].sender.picture = "";
+					addEmail(emails.safe[id], "safe", id);
+
+					var emailMov = document.getElementById("new-email-btn");
+					emailMov.remove();
+					//document.getElementById("email-list").appendChild(emailMov);
+					newEmailBtn(safeOrScam, id+1);
+				}, false);
+			} else {
+				newEmail.addEventListener('click', function () {
+					emails.scam[id] = new Object;
+					emails.scam[id].id = id;
+					emails.scam[id].title = "";
+					emails.scam[id].body = "";
+					emails.scam[id].attachment = "";
+					
+					emails.scam[id].sender = new Object;
+					emails.scam[id].sender.name = "";
+					emails.scam[id].sender.email = "";
+					emails.scam[id].sender.picture = "";
+					addEmail(emails.scam[id], "scam", id);
+					
+					var emailMov = document.getElementById("new-email-btn");
+					emailMov.remove();
+					//document.getElementById("email-list").appendChild(emailMov);
+					newEmailBtn(safeOrScam, id+1);
+				}, false);	
+			}
+			
+			document.getElementById("email-list").appendChild(newEmail);
+		}
+
+		// creates a new email display from the email and type
+		function addEmail(element, type, id) {
+			// creates the display headers to be added before the text boxes
+			var cont = document.createElement("div");
+			var titleH = document.createElement("h3");
+			var bodyH = document.createElement("h3");
+			var senderNameH = document.createElement("h3");
+			var senderEmailH = document.createElement("h3");
+			var attachmentH = document.createElement("h3");
+			var deleteBtn = document.createElement("button");
+
+			//update.innerHTML = "Update Email";
+			//update.onclick = function() {updateEmail(id)};
+
+			titleH.innerHTML = "Title";
+			bodyH.innerHTML = "Body";
+			senderNameH.innerHTML = "Sender Name";
+			senderEmailH.innerHTML = "Sender Email";
+			attachmentH.innerHTML = "Attachment";
+
+			// sets the email div's style class
+			cont.id = type + id;
+			cont.className = (id % 2 == 0) ? "evenEmail" : "oddEmail";
+
+			// creates the text areas for email content to be set
+			// setting existing content in the boxes so it can be edited easily
+			var title = document.createElement("textarea")
+			title.id = type + id + "title";
+			title.innerHTML = element.title;
+			var body = document.createElement("textarea");
+			body.id = type + id + "body";
+			body.className = "bodyText";
+			body.innerHTML = element.body;
+			var senderName = document.createElement("textarea");
+			senderName.id = type + id + "senderName";
+			senderName.innerHTML = element.sender.name;
+			var senderEmail = document.createElement("textarea");
+			senderEmail.innerHTML = element.sender.email;
+			senderEmail.id = type + id + "senderEmail";
+			var attachment = document.createElement("textarea");
+			attachment.id = type + id + "attachment";
+			if (element.attachment != null) {
+				attachment.innerHTML = element.attachment;
+			}
+			
+			// adds a delete button to the email so emails can be deleted from the list
+			deleteBtn.innerText = "Delete";
+			deleteBtn.addEventListener("click", (id, type) => {
+				if (type=="scam") {
+					emails.scam.splice(id, 1);
+				} else {
+					emails.safe.splice(id, 1);
+				}
+				cont.remove();
+			})
+
+			// adds event listeners to each text box that updates the object list when edited
+			title.addEventListener('input', function () {
+				title.value = filterText(title.value);
+				updateEmail(type, id);
+			}, false);
+			body.addEventListener('input', function () {
+				body.value = filterText(body.value);
+				updateEmail(type, id);
+			}, false);
+			senderName.addEventListener('input', function () {
+				senderName.value = filterText(senderName.value);
+				updateEmail(type, id);
+			}, false);
+			senderEmail.addEventListener('input', function () {
+				senderEmail.value = filterText(senderEmail.value);
+				updateEmail(type, id);
+			}, false);
+			attachment.addEventListener('input', function () {
+				attachment.value = filterText(attachment.value);
+				updateEmail(type, id);
+			}, false);
+
+			// adds the textboxes and headers to the div in order
+			cont.appendChild(deleteBtn);
+			cont.appendChild(senderNameH);
+			cont.appendChild(senderName);
+			cont.appendChild(senderEmailH);
+			cont.appendChild(senderEmail);
+			cont.appendChild(titleH);
+			cont.appendChild(title);
+			cont.appendChild(attachmentH);
+			cont.appendChild(attachment);
+			cont.appendChild(bodyH);
+			cont.appendChild(body);
+
+			// if looking at scam emails also adds a section for feedback to be added for when the email is 
+			// incorrectly marked as safe
+			if (type=="scam") {
+				var feedbackH = document.createElement("h3");
+				feedbackH.innerHTML = "Incorrect Feedback (for when marked as safe)";
+
+				var feedback = document.createElement("textarea");
+				feedback.addEventListener('input', function () {
+					feedback.value = filterText(feedback.value);
+					updateEmail(type, id);
+				}, false);
+				if (element.feedback!=null) {
+					feedback.innerHTML = element.feedback;
+				}
+				feedback.id = type + id + "feedback";
+				cont.appendChild(feedbackH);
+				cont.appendChild(feedback);
+			}
+			
+			document.getElementById("email-list").appendChild(cont);
+		}
+
+		// filters quote marks and scripts from the text boxes so the json file remains valid
+		function filterText(text) {
+			text = text.replaceAll("\"", "'");
+			text = text.replaceAll("<script", "");
+			return text;
+
+		}
+
+		// removes all emails that are displayed
+		function clear() {
+			var l = document.getElementById("email-list").children;
+
+			var len = l.length;
+			for (var j = 0; j < len; j++) {
+				l[0].remove();
+
+			}
+		}
+
+		// creates a new json file containing all the emails loaded and downloads it to the user's computer
+		function saveEmails() {
+			var i =0;
+
+			emails.safe.forEach((ele) => {
+				ele.id = i;
+				i++;
+			})
+			emails.scam.forEach((ele) => {
+				ele.id = i;
+				i++;
+			})
+			var data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(emails))
+			var save = document.getElementById("saveBtn");
+			var anch = document.createElement('a');
+			anch.setAttribute("href", data);
+			anch.setAttribute("download", "emails.json");
+			document.body.appendChild(anch); // required for firefox
+			anch.click();
+			anch.remove();
+		}
+
+		// updates the contents of an email object for a specific email
+		function updateEmail(type, id) {
+			if (type == "scam") {
+				emails.scam[id].title = document.getElementById(type + id + "title").value;
+				emails.scam[id].body = document.getElementById(type + id + "body").value;
+				emails.scam[id].sender.name = document.getElementById(type + id + "senderName").value;
+				emails.scam[id].sender.email = document.getElementById(type + id + "senderEmail").value;
+				emails.scam[id].attachment = document.getElementById(type + id + "attachment").value;
+				emails.scam[id].feedback = document.getElementById(type + id + "feedback").value;
+			} else {
+				emails.safe[id].title = document.getElementById(type + id + "title").value;
+				emails.safe[id].body = document.getElementById(type + id + "body").value;
+				emails.safe[id].sender.name = document.getElementById(type + id + "senderName").value;
+				emails.safe[id].sender.email = document.getElementById(type + id + "senderEmail").value;
+				emails.safe[id].attachment = document.getElementById(type + id + "attachment").value;
+			}
+		}
+	</script>	
+</body>
+
+</html>
